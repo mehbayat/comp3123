@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ShowCard.css';
 
 function ShowCard({ data }) {
+  const [isExpanded, setIsExpanded] = useState(false);
   const stripHtml = (html) => {
     if (!html) return 'No description available.';
     const tmp = document.createElement('DIV');
@@ -66,7 +67,19 @@ function ShowCard({ data }) {
           ))}
         </div>
 
-        <p className="show-summary">{stripHtml(data.summary)}</p>
+        <div className="summary-container">
+          <p className={`show-summary ${isExpanded ? 'expanded' : ''}`}>
+            {stripHtml(data.summary)}
+          </p>
+          {data.summary && stripHtml(data.summary).length > 200 && (
+            <button
+              className="read-more-btn"
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              {isExpanded ? '▲ Show Less' : '▼ Read More'}
+            </button>
+          )}
+        </div>
 
         <div className="show-details">
           {data.network && (

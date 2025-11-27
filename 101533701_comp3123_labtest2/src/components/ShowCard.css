@@ -106,15 +106,43 @@
   font-weight: 500;
 }
 
+.summary-container {
+  margin-bottom: 15px;
+}
+
 .show-summary {
   color: #555;
   line-height: 1.6;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  text-align: justify;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-align: justify;
+  transition: all 0.3s ease;
+}
+
+.show-summary.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.read-more-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.read-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 .show-details {
