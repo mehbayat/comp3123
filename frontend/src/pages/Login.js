@@ -25,7 +25,7 @@ export default function Login() {
   const loginMutation = useMutation({
     mutationFn: authAPI.login,
     onSuccess: (data) => {
-      login(data.user || { email: formData.email }, data.token);
+      login(data.user || { email: formData.email }, data.jwt_token);
       navigate('/employees');
     },
     onError: (error) => {
